@@ -23,6 +23,7 @@ from selenium.webdriver.support import expected_conditions as EC
 word_len = 5
 game_uri = "https://www.nytimes.com/games/wordle/index.html"
 lexicon_uri = "lexicon.txt" # Include any file containing 1 word per line
+log_file = "wordle_solver.log"
 
 ### Setup & Start browser
 
@@ -255,7 +256,7 @@ def log_guess_record(guess_record):
     """
     Log today's guess record to a file
     """
-    with open("wordle_solver.log", "a") as myfile:
+    with open(log_file, "a") as myfile:
         date_str = date.today().strftime("%y/%m/%d")
         guess_log = {
             "date": date_str,
